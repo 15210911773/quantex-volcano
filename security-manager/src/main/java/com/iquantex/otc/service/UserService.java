@@ -1,15 +1,22 @@
 package com.iquantex.otc.service;
 
+import com.iquantex.otc.model.SysPermission;
+import com.iquantex.otc.model.SysRole;
+import com.iquantex.otc.model.UserInfo;
+
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
 
     /**
-     * 登录
-     * @param loginName
-     * @param loginPassword
+     * 根据用户名查询
+     * @param username
      * @return
      */
-    Map<String, Object> userLogin(String loginName, String loginPassword);
+    UserInfo findByUsername(String username);
 
+    List<SysRole> findRoleListByUser(UserInfo userInfo);
+
+    List<SysPermission> findPermissionsByRole(SysRole role);
 }
